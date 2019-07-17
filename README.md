@@ -1,2 +1,13 @@
-# StsAssumeRoleCredentialsProvider
-AWS SDK 2.0 code to showcase how to assume IAM ROLE
+/**
+ * Shows how to assume IAM ROLE in KCL 2.x and submit records to kinesis stream.
+ * Also high lights how to bye pass existing issue in AWS SDK ( through some transient dependency ).
+ */
+
+NOTE :: In some sequence mostly related to dependent jar behaviour, if explicit httpClient is not
+        set, then below error occurs ::
+
+Error: Unable to load an HTTP implementation from any provider in the chain.You must declare a dependency on an appropriate HTTP implementation or pass in an SdkHttpClient explicitly to the client builder.
+          
+1. With attached pom.xml it works just file, however when multiple different AWS SDK packages
+                      are included or through other transient dependencies, this erorr occurs.
+2. By explcit setting httpClient, it can be work around until AWS fixes the issue.
