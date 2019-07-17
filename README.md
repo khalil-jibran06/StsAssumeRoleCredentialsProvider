@@ -1,7 +1,9 @@
-/**
- * Shows how to assume IAM ROLE in KCL 2.x and submit records to kinesis stream.
- * Also high lights how to bye pass existing issue in AWS SDK ( through some transient dependency ).
- */
+This code shows sample code to do role assumption and submission to kinesis stream through AWS SDK 2.x
+
+Mostly it provides work around for an error case where httpClient needs to be provided explcitly, because of dependent jars altering the default behaviour.
+
+Shows how to assume IAM ROLE in KCL 2.x and submit records to kinesis stream.
+Also high lights how to bye pass existing issue in AWS SDK ( through some transient dependency ).
 
 NOTE :: In some sequence mostly related to dependent jar behaviour, if explicit httpClient is not
         set, then below error occurs ::
